@@ -1,5 +1,5 @@
 #!/bin/sh
-# Warn (without blocking) when STYLE_GUIDE.md or INDEX.md are part of the push.
+# Warn (without blocking) when STYLE_GUIDE.md, INDEX.md, or CLAUDE.md are part of the push.
 
 empty_tree=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 z40=0000000000000000000000000000000000000000
@@ -14,13 +14,13 @@ while read local_ref local_sha remote_ref remote_sha; do
     range="$remote_sha $local_sha"
   fi
 
-  if git diff --name-only $range -- | grep -E '(^|/)(STYLE_GUIDE|INDEX)\.md$' > /dev/null; then
+  if git diff --name-only $range -- | grep -E '(^|/)(STYLE_GUIDE|INDEX|CLAUDE)\.md$' > /dev/null; then
     warn=1
   fi
 done
 
 if [ "$warn" = "1" ]; then
-  echo "STYLE_GUIDE.md または INDEX.md に変更があります。Claude.aiのReportsプロジェクトの知識ファイルも忘れずに更新してください。" >&2
+  echo "STYLE_GUIDE.md、INDEX.md、または CLAUDE.md に変更があります。Claude.aiのReportsプロジェクトの知識ファイルも忘れずに更新してください。" >&2
 fi
 
 exit 0

@@ -17,7 +17,7 @@ INDEX.mdの更新など）を自動的に踏まえて作業できるようにな
 - 実験フォルダ内の data/（例：experiment-1-strain-gauge/data/）に新しいCSVが追加されたら、ルートのSTYLE_GUIDE.mdのルールに沿って、その実験のレポート（.md）を生成する
 - 生成したレポートは、対応する実験フォルダの中に保存する
 - 新しい実験フォルダを作成したら、ルートのINDEX.mdに1行追記する
-- pushする際は、pre-pushフックが表示する警告（STYLE_GUIDE.mdやINDEX.mdの変更時）を確認し、必要であればClaude.aiのReportsプロジェクトの知識ファイルも更新するようユーザーに促す
+- pushする際は、pre-pushフックが表示する警告（STYLE_GUIDE.md・INDEX.md・CLAUDE.mdの変更時）を確認し、必要であればClaude.aiのReportsプロジェクトの知識ファイルも更新するようユーザーに促す
 
 ## トラブルシューティング：ファイルが正しく読み込めない時
 
