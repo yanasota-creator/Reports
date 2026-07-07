@@ -14,19 +14,19 @@
 
 ## データ（data/）
 
-- experiment_data_Hizumi..csv（はりのたわみ試験データ）
+- Hari_Tawamishiken.csv（はりのたわみ試験データ）
   https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-1-strain-gauge/data/Hari_Tawamishiken.csv
 
-- Hizumisokutei.csv（引張試験データ）
+- Hipparishiken.csv（引張試験データ）
   https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-1-strain-gauge/data/Hipparishiken.csv
 
 ## 画像（images/）
 
-- Hari_Stress-strain diagram.png（はりのたわみ試験：応力-ひずみ）
-  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-1-strain-gauge/images/Hari_Stress-strain%20diagram.png
+- Hari_Stress-strain_diagram.png（はりのたわみ試験：応力-ひずみ）
+  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-1-strain-gauge/images/Hari_Stress-strain_diagram.png
 
-- Hari_Load-deflection diagram.png（はりのたわみ試験：荷重-たわみ）
-  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-1-strain-gauge/images/Hari_Load-deflection%20diagram.png
+- Hari_Load-deflection_diagram.png（はりのたわみ試験：荷重-たわみ）
+  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-1-strain-gauge/images/Hari_Load-deflection_diagram.png
 
-- Stress-strain diagram.png（引張試験：応力-ひずみ，Excel作成）
-  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-1-strain-gauge/images/Stress-strain%20diagram.png
+- Stress-strain_diagram.png（引張試験：応力-ひずみ，Excel作成）
+  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-1-strain-gauge/images/Stress-strain_diagram.png
