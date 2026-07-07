@@ -1,4 +1,4 @@
-# Engineering-Reports
+# Reports
 
 工学実験レポート置き場．実験ごとのフォルダ構成・リンク一覧は [INDEX.md](INDEX.md) を参照．
 

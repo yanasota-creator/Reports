@@ -10,4 +10,4 @@
 ## 実験一覧
 
 - experiment-1-strain-gauge（材料力学：はりのたわみ試験・引張試験のデータ）
-  https://raw.githubusercontent.com/yanasota-creator/Engineering-Reports/main/experiment-1-strain-gauge/INDEX.md
+  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-1-strain-gauge/INDEX.md
