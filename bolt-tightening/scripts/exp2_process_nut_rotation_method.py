@@ -115,7 +115,7 @@ def process(rows):
 
 
 root = pathlib.Path(__file__).resolve().parent.parent
-data_path = root / "data" / "nut_rotation_method.csv"
+data_path = root / "data" / "exp2_nut_rotation_method.csv"
 
 with open(data_path, "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
@@ -171,8 +171,8 @@ if __name__ == "__main__":
         print(f"saved {filename}")
 
     plot_metric("F", "theta", "ボルト軸力 $F$ [N]", "ナット回転角とボルト軸力の関係（実験2）",
-                "F_vs_theta_exp2.png")
+                "exp2_F_vs_theta.png")
     plot_metric("Tr", "theta", "被締結物とボルト軸の残留トルク $T_r$ [Nm]",
-                "ナット回転角と残留トルクの関係（実験2）", "Tr_vs_theta_exp2.png")
+                "ナット回転角と残留トルクの関係（実験2）", "exp2_Tr_vs_theta.png")
     plot_metric("Z", "theta_Z", "へたり係数の実験値 $Z$ [N/m]",
-                "ナット回転角とへたり係数の関係（実験2）", "Z_vs_theta_exp2.png")
+                "ナット回転角とへたり係数の関係（実験2）", "exp2_Z_vs_theta.png")

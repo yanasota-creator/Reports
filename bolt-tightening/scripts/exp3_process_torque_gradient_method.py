@@ -100,7 +100,7 @@ def process(rows):
 
 
 root = pathlib.Path(__file__).resolve().parent.parent
-data_path = root / "data" / "torque_gradient_method.csv"
+data_path = root / "data" / "exp3_torque_gradient_method.csv"
 
 with open(data_path, "w", newline="", encoding="utf-8") as f:
     writer = csv.writer(f)
@@ -158,10 +158,10 @@ if __name__ == "__main__":
         plt.close(fig)
         print(f"saved {filename}")
 
-    plot_metric("F", "ボルト軸力 $F$ [N]", "ナット回転角とボルト軸力の関係", "F_vs_theta.png")
-    plot_metric("Tf", "締付トルク $T_f$ [Nm]", "ナット回転角と締付トルクの関係", "Tf_vs_theta.png")
+    plot_metric("F", "ボルト軸力 $F$ [N]", "ナット回転角とボルト軸力の関係", "exp3_F_vs_theta.png")
+    plot_metric("Tf", "締付トルク $T_f$ [Nm]", "ナット回転角と締付トルクの関係", "exp3_Tf_vs_theta.png")
     plot_metric("Tr", "被締結物とボルト軸の残留トルク $T_r$ [Nm]",
-                "ナット回転角と残留トルクの関係", "Tr_vs_theta.png")
+                "ナット回転角と残留トルクの関係", "exp3_Tr_vs_theta.png")
 
     fig, ax = plt.subplots(figsize=(9, 6))
     for label, d in bolts.items():
@@ -176,7 +176,7 @@ if __name__ == "__main__":
     ax.set_title("ナット回転角とトルク勾配の関係")
     ax.legend(loc="best", fontsize=9)
     fig.tight_layout()
-    fig.savefig(images_dir / "gradient_vs_theta.png", dpi=150)
+    fig.savefig(images_dir / "exp3_gradient_vs_theta.png", dpi=150)
     plt.close(fig)
 
-    print("saved Tf_vs_theta.png, gradient_vs_theta.png")
+    print("saved exp3_Tf_vs_theta.png, exp3_gradient_vs_theta.png")

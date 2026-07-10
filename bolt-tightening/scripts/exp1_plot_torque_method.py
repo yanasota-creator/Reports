@@ -87,8 +87,8 @@ def plot_metric(key, ylabel, title, filename, fit_line=True):
     print(f"saved to {out}")
 
 
-plot_metric("F", "ボルト軸力 $F$ [N]", "締付トルクとボルト軸力の関係", "F_vs_Tf.png")
-plot_metric("Tw", "座面の摩擦トルク $T_w$ [Nm]", "締付トルクと座面摩擦トルクの関係", "Tw_vs_Tf.png")
-plot_metric("Ts", "ねじ部のトルク $T_s$ [Nm]", "締付トルクとねじ部トルクの関係", "Ts_vs_Tf.png")
-plot_metric("muw", "座面の摩擦係数 $\\mu_w$", "締付トルクと座面摩擦係数の関係", "muw_vs_Tf.png", fit_line=False)
-plot_metric("mus", "ねじ部の摩擦係数 $\\mu_s$", "締付トルクとねじ部摩擦係数の関係", "mus_vs_Tf.png", fit_line=False)
+plot_metric("F", "ボルト軸力 $F$ [N]", "締付トルクとボルト軸力の関係", "exp1_F_vs_Tf.png")
+plot_metric("Tw", "座面の摩擦トルク $T_w$ [Nm]", "締付トルクと座面摩擦トルクの関係", "exp1_Tw_vs_Tf.png")
+plot_metric("Ts", "ねじ部のトルク $T_s$ [Nm]", "締付トルクとねじ部トルクの関係", "exp1_Ts_vs_Tf.png")
+plot_metric("muw", "座面の摩擦係数 $\\mu_w$", "締付トルクと座面摩擦係数の関係", "exp1_muw_vs_Tf.png", fit_line=False)
+plot_metric("mus", "ねじ部の摩擦係数 $\\mu_s$", "締付トルクとねじ部摩擦係数の関係", "exp1_mus_vs_Tf.png", fit_line=False)
