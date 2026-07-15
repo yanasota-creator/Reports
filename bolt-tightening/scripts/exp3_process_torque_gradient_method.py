@@ -123,10 +123,12 @@ bolts = {}
 colors = {"1本目": "tab:blue", "2本目": "tab:orange", "3本目": "tab:green",
           "4本目": "tab:red", "5本目": "tab:purple"}
 markers = {"1本目": "o", "2本目": "s", "3本目": "^", "4本目": "D", "5本目": "v"}
+linestyles = {"1本目": "-", "2本目": "--", "3本目": ":", "4本目": "-.",
+              "5本目": (0, (3, 1, 1, 1, 1, 1))}
 for label, d in bolts_raw.items():
     rows = process(d["rows"])
     bolts[f"{label} {d['grade']}（{d['material']}）"] = dict(
-        color=colors[label], marker=markers[label],
+        color=colors[label], marker=markers[label], linestyle=linestyles[label],
         theta=[r["theta"] for r in rows],
         F=[r["F"] for r in rows],
         Tf=[r["Tf"] for r in rows],
@@ -147,7 +149,8 @@ if __name__ == "__main__":
         fig, ax = plt.subplots(figsize=(9, 6))
         for label, d in bolts.items():
             ax.plot(d["theta"], d[key], color=d["color"], marker=d["marker"],
-                     markersize=7, linewidth=1.4, zorder=3, label=label)
+                     linestyle=d["linestyle"], markersize=7, linewidth=1.4,
+                     zorder=3, label=label)
         ax.grid(True, linestyle="-", alpha=0.4)
         ax.set_xlabel("ナット回転角 $\\theta$ [°]")
         ax.set_ylabel(ylabel)
@@ -168,7 +171,8 @@ if __name__ == "__main__":
         theta = np.array(d["theta"][1:])
         grad = np.array(d["grad"][1:], dtype=float)
         ax.plot(theta, grad, color=d["color"], marker=d["marker"],
-                 markersize=7, linewidth=1.4, zorder=3, label=label)
+                 linestyle=d["linestyle"], markersize=7, linewidth=1.4,
+                 zorder=3, label=label)
     ax.axhline(0, color="gray", linewidth=0.8)
     ax.grid(True, linestyle="-", alpha=0.4)
     ax.set_xlabel("ナット回転角 $\\theta$ [°]")
