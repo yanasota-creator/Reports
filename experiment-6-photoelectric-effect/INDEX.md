@@ -14,7 +14,8 @@
 
 ## レポート
 
-（まだレポートがありません）
+- report.md（光電効果によるプランク定数測定のレポート）
+  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-6-photoelectric-effect/report.md
 
 ## データ（data/）
 
@@ -23,9 +24,13 @@
 
 ## 画像（images/）
 
-（まだ画像がありません）
+- eV0_nu_graph.png（eV0とνの関係グラフ、回帰直線付き）
+  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-6-photoelectric-effect/images/eV0_nu_graph.png
+
+- galvanometer_voltage_graph.png（検流計の読みと電圧の関係グラフ、赤・緑・青）
+  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-6-photoelectric-effect/images/galvanometer_voltage_graph.png
 
 ## 参考資料（references/）
 
-- 光電管（プランク定数）.pdf
-  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-6-photoelectric-effect/references/光電管（プランク定数）.pdf
+- reference_materials.pdf（実験配布資料「実験29　光電管」、目的・理論・実験手順を含む）
+  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-6-photoelectric-effect/references/reference_materials.pdf
