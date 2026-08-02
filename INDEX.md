@@ -20,3 +20,6 @@
 
 - bolt-tightening（ボルト締結実験）
   https://raw.githubusercontent.com/yanasota-creator/Reports/main/bolt-tightening/INDEX.md
+
+- experiment-6-photoelectric-effect（光電効果によるプランク定数測定）
+  https://raw.githubusercontent.com/yanasota-creator/Reports/main/experiment-6-photoelectric-effect/INDEX.md
