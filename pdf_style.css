@@ -58,9 +58,17 @@ body li, body th, body td,
 /* ----- KaTeX：数式中の日本語（h_{実験} など）の字体を本文に合わせる -----
    指定しないと日本語グリフが中国語フォントにフォールバックし、
    その部分だけ急に太字になったように見える                              */
+/* KaTeXは既定で font-size:1.21em（欧文本文に合わせた設計）で組むため、
+   和文の本文と並べると数式だけ大きく＝太く見える。本文サイズに寄せる。 */
 .katex {
+    font-size: 1.05em !important;
     font-family: KaTeX_Main, "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN",
                  "Noto Serif JP", "Times New Roman", serif;
+}
+
+/* ブロック数式は独立した段落なので、少し大きめのままにする */
+.katex-display .katex {
+    font-size: 1.15em !important;
 }
 
 .katex .mathnormal,
