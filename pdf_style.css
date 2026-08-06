@@ -4,42 +4,55 @@
    markdown-pdf.styles から読み込んで使う（設定方法は STYLE_GUIDE.md 11章）
    ========================================================================== */
 
-/* ----- 本文：明朝体 ----- */
-body {
+/* ----- 本文：明朝体 -----
+   Markdown PDF拡張の内蔵CSSが body に sans-serif 系のフォントを指定しているため、
+   セレクタを重ねたうえで !important を付けないと打ち消される               */
+body,
+body.markdown-body,
+.markdown-body,
+.vscode-body {
     font-size: 10.5px;
     font-family: "Yu Mincho", "YuMincho", "游明朝", "Hiragino Mincho ProN",
                  "BIZ UDMincho", "MS PMincho", "Noto Serif JP", "Noto Serif CJK JP",
-                 serif;
+                 "Times New Roman", serif !important;
 }
 
 /* ----- 段落の字下げ（全角1文字分） ----- */
-p {
-    text-indent: 1em;
+body p,
+.markdown-body p {
+    text-indent: 1em !important;
 }
 
 /* 画像はブロック化する（pの中に行ボックスが無くなるので字下げの対象外になる） */
-img {
+body img,
+.markdown-body img {
     display: block;
     max-width: 100%;
-    text-indent: 0;
+    text-indent: 0 !important;
 }
 
 /* 表・図のキャプション（**...** だけの段落）は字下げしない */
-p > strong:only-child {
+body p > strong:only-child,
+.markdown-body p > strong:only-child {
     display: block;
-    text-indent: 0;
+    text-indent: 0 !important;
 }
 
 /* ブロック数式は中央寄せのまま、字下げしない */
-.katex-block,
-.katex-display {
-    text-indent: 0;
+body .katex-block,
+body .katex-display,
+.markdown-body .katex-block,
+.markdown-body .katex-display {
+    text-indent: 0 !important;
 }
 
 /* 見出し・箇条書き・表の中は字下げしない */
-h1, h2, h3, h4, h5, h6,
-li, th, td {
-    text-indent: 0;
+body h1, body h2, body h3, body h4, body h5, body h6,
+body li, body th, body td,
+.markdown-body h1, .markdown-body h2, .markdown-body h3,
+.markdown-body h4, .markdown-body h5, .markdown-body h6,
+.markdown-body li, .markdown-body th, .markdown-body td {
+    text-indent: 0 !important;
 }
 
 /* ----- KaTeX：数式中の日本語（h_{実験} など）の字体を本文に合わせる -----
@@ -47,17 +60,17 @@ li, th, td {
    その部分だけ急に太字になったように見える                              */
 .katex {
     font-family: KaTeX_Main, "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN",
-                 "Times New Roman", serif;
+                 "Noto Serif JP", "Times New Roman", serif;
 }
 
 .katex .mathnormal,
 .katex .mathdefault {
-    font-family: KaTeX_Math, "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", serif;
+    font-family: KaTeX_Math, "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
 }
 
 .katex .mathrm,
 .katex .text {
-    font-family: KaTeX_Main, "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", serif;
+    font-family: KaTeX_Main, "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
 }
 
 /* ----- 改ページ制御：見出しの直後や図表・数式の途中で切れないようにする ----- */
