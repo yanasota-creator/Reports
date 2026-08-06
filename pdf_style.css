@@ -81,6 +81,44 @@ body li, body th, body td,
     font-family: KaTeX_Main, "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
 }
 
+/* ----- 表：三本線表 -----
+   罫線は「上端・見出しの下・下端」の3本のみ、縦罫と地色は使わない。
+   拡張の内蔵CSS（GitHub風の全セル罫線・ゼブラ塗り・広いpadding）を打ち消す。 */
+body table,
+.markdown-body table {
+    border-collapse: collapse;
+    margin: 0.5em auto 1.2em;   /* 中央寄せ */
+    width: auto;
+    max-width: 100%;
+    font-size: 0.95em;
+}
+
+body table th, body table td,
+.markdown-body table th, .markdown-body table td {
+    border: none !important;
+    background: none !important;   /* ゼブラ塗りを消す */
+    padding: 0.3em 1.1em !important;
+    line-height: 1.4 !important;
+}
+
+body table tr,
+.markdown-body table tr {
+    background: none !important;
+    border: none !important;
+}
+
+body table thead th,
+.markdown-body table thead th {
+    font-weight: normal;           /* 見出し行は太字にしない */
+    border-top: 1.2pt solid #000 !important;
+    border-bottom: 0.6pt solid #000 !important;
+}
+
+body table tbody tr:last-child td,
+.markdown-body table tbody tr:last-child td {
+    border-bottom: 1.2pt solid #000 !important;
+}
+
 /* ----- 改ページ制御：見出しの直後や図表・数式の途中で切れないようにする ----- */
 h1, h2, h3, h4 {
     page-break-after: avoid;
