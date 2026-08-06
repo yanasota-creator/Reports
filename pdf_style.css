@@ -1,3 +1,78 @@
+/* ==========================================================================
+   レポートPDF共通スタイル
+   VSCode拡張「Markdown PDF」(yzane.markdown-pdf) の
+   markdown-pdf.styles から読み込んで使う（設定方法は STYLE_GUIDE.md 11章）
+   ========================================================================== */
+
+/* ----- 本文：明朝体 ----- */
 body {
     font-size: 10.5px;
+    font-family: "Yu Mincho", "YuMincho", "游明朝", "Hiragino Mincho ProN",
+                 "BIZ UDMincho", "MS PMincho", "Noto Serif JP", "Noto Serif CJK JP",
+                 serif;
+}
+
+/* ----- 段落の字下げ（全角1文字分） ----- */
+p {
+    text-indent: 1em;
+}
+
+/* 画像はブロック化する（pの中に行ボックスが無くなるので字下げの対象外になる） */
+img {
+    display: block;
+    max-width: 100%;
+    text-indent: 0;
+}
+
+/* 表・図のキャプション（**...** だけの段落）は字下げしない */
+p > strong:only-child {
+    display: block;
+    text-indent: 0;
+}
+
+/* ブロック数式は中央寄せのまま、字下げしない */
+.katex-block,
+.katex-display {
+    text-indent: 0;
+}
+
+/* 見出し・箇条書き・表の中は字下げしない */
+h1, h2, h3, h4, h5, h6,
+li, th, td {
+    text-indent: 0;
+}
+
+/* ----- KaTeX：数式中の日本語（h_{実験} など）の字体を本文に合わせる -----
+   指定しないと日本語グリフが中国語フォントにフォールバックし、
+   その部分だけ急に太字になったように見える                              */
+.katex {
+    font-family: KaTeX_Main, "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN",
+                 "Times New Roman", serif;
+}
+
+.katex .mathnormal,
+.katex .mathdefault {
+    font-family: KaTeX_Math, "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", serif;
+}
+
+.katex .mathrm,
+.katex .text {
+    font-family: KaTeX_Main, "Yu Mincho", "MS PMincho", "Hiragino Mincho ProN", serif;
+}
+
+/* ----- 改ページ制御：見出しの直後や図表・数式の途中で切れないようにする ----- */
+h1, h2, h3, h4 {
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+img, table, pre,
+.katex-block, .katex-display {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+p {
+    orphans: 2;
+    widows: 2;
 }

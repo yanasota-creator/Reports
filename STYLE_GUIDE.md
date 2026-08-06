@@ -79,3 +79,45 @@ images/                      ← グラフ・図（png推奨、pdfはMarkdown上
 
 - 本文中で参考文献を引用する箇所は、上付き文字で書く
 - Markdownでは`<sup>[1]</sup>`のようにHTMLタグを使う
+
+## 11. PDF出力の体裁（字下げ・明朝体・ページ番号）
+
+PDFはVSCode拡張「Markdown PDF」（yzane.markdown-pdf）で出力する。体裁は次の2か所で共通管理しており、**レポートごとに書く必要はない**（新しい実験のレポートにもそのまま適用される）。
+
+### 11.1 見た目のルール（ルートの`pdf_style.css`）
+
+- 本文は**明朝体**（`Yu Mincho`→`MS PMincho`等の順にフォールバック）
+- 段落の先頭は**全角1文字分の字下げ**（`p { text-indent: 1em; }`）
+- 字下げしないもの：見出し、箇条書き、表の中身、画像、表・図のキャプション（`**...**`だけの段落）、ブロック数式
+- 数式（KaTeX）中の日本語（`h_{実験}`など）にも明朝体を指定する
+  - 指定しないと日本語グリフだけ中国語フォントにフォールバックし、その部分が急に太字になったように見える
+- 見出しの直後や、図・表・数式ブロックの途中で改ページされないようにする
+- あわせて、PDFの余白（`markdown-pdf.margin.*`）を既定より広くとる
+  - 既定の下余白1cmではフッタ（ページ番号）と本文がぶつかり、改ページ位置で本文の行が切れることがある
+
+### 11.2 VSCode側の設定（`.vscode/settings.json`）
+
+リポジトリ直下の`.vscode/settings.json`に以下を置いてある。VSCodeでReportsフォルダをワークスペースとして開いていれば自動で効く。
+
+```json
+{
+  "markdown-pdf.styles": ["pdf_style.css"],
+  "markdown-pdf.stylesRelativePathFile": false,
+  "markdown-pdf.displayHeaderFooter": true,
+  "markdown-pdf.footerTemplate": "<div style=\"font-size:9px; margin:0 auto;\"><span class='pageNumber'></span></div>",
+  "markdown-pdf.margin.top": "2cm",
+  "markdown-pdf.margin.bottom": "1.8cm",
+  "markdown-pdf.margin.left": "1.5cm",
+  "markdown-pdf.margin.right": "1.5cm"
+}
+```
+
+- `markdown-pdf.styles`：`pdf_style.css`を読み込ませる。**これが無いと字下げ・明朝体が反映されない**
+  - `stylesRelativePathFile: false`のとき、相対パスはワークスペースルート（Reportsフォルダ）からの解釈になる
+- `markdown-pdf.footerTemplate`：**ページ番号を「2 / 7」ではなく「2」だけにする**
+  - 既定値は`<span class='pageNumber'></span> / <span class='totalPages'></span>`なので、`/ totalPages`の部分を消している
+- Reportsフォルダをワークスペースとして開かずに使う場合は、同じ内容をユーザー設定（`Ctrl+Shift+P`→「基本設定: ユーザー設定を開く (JSON)」）に書き、`markdown-pdf.styles`はフルパスで指定する
+
+### 11.3 出力手順
+
+Markdownファイルを開いた状態で`Ctrl+Shift+P`→`Markdown PDF: Export (pdf)`。設定を変更した場合は、変更後に出力し直さないと反映されない。
